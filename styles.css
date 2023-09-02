@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding: 0;
+    max-width: 100%;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;}
+    body {
+      background-color: rgb(3, 9, 91);
+    } 
+    .menu{
+     background-color: aliceblue;
+     display: flex;
+     justify-content: flex-end;
+    }
+    .EstilosProductos{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .marca{
+        font-family: 'Montserrat', sans-serif;
+        font-size: large;
+        color: aliceblue;
+
+      }
