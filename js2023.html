@@ -17,25 +17,100 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <header>
-        <p class="marca">GRAFICA NORTE</p>
-        <img src = "img/logo.jpg" width=250px; height=250px>
+            <img src = "img/logo.jpg" width=200px; height=200px>
     </header>
+    <div class="marca">
+        <h1>Registrate</h1>
+        <label for="">Usuario</label>
+        <input type="text" id="nombre">
+       <br>
+        <label for="">Contraseña</label>
+        <input type="text" id="password">
+      
+           
+        <br>
+        <button id="btn_registro">Registrate</button>
+        <br>
+        <button id="btn_login">LogIn</button>
+        </div>
     <div class="menu">
-        <button type="button" id="btnBuscar" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <button type="button" id="btnBuscar" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
           Buscar
         </button>
-        <input id="busqueda" class="campo"type="text"/><li class="sugerencias"></li>            
+        <input id="busqueda" class="campo"type="text"/>
+        <li className="nav-item">
+            <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModal" class="btn btn-secondary"><i class="fas fa-shopping-cart fa-1x"></i></a>
+        </li>            
     </div>
-        <h2>
+        <h2 class="marca">
         Elije tu producto
         </h2>
 
-<div id = "Productos" class="EstilosProductos"></div> 
-        <img src="img/rollosDeVinilo.jpg" class="rounded float-start" alt="300px">
-        <img src="img/lonaImpresa.jpg" class="rounded float-end" alt="300px">
-        <img src="img/viniloImpreso.jpg" class="rounded float-end" alt="300px">
-        <img src="img/viniloCorte.jpeg" class="rounded float-end" alt="300px">
-    </div>
- <script src="js2023.js"></script>   
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+              <div class="card">
+                <img src="img/rollosDeVinilo.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">VINILO EN ROLLO</h5>
+                  <p class="card-text">VINILO COLOR POR METRO LINEAL. EN VERSION DE 60CM DE ANCHO Y EN 1.20 METROS DE ANCHO</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="img/lonaImpresa.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">LONA VINILICA IMPRESA</h5>
+                  <p class="card-text">LONA VINILICA IMPRESA POR METRO CUADRADO.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="img/viniloImpreso1.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">VINILO IMPRESO</h5>
+                  <p class="card-text">VINILO IMPRESO POR METRO CUADRADO.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="img/viniloCorte.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">CORTE DE VINILO</h5>
+                  <p class="card-text">VINILO CORTADO A PEDIDO POR METRO LINEAL.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+            <div class="card">
+              <img src="img/tarjetas-personales.jpg" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">TARJETAS PERSONALES</h5>
+                <p class="card-text">TARJETAS PERSONALES. DISEÑO E IMPRESION.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="img/volantesbyn.png" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">VOLANTES TINTA NEGRA</h5>
+                <p class="card-text">VOLANTES EN TINTA NEGRA PAPEL OBRA 70GRS. INCLUYE DISEÑO</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="img/volantesColor.png" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">VOLANTES COLOR</h5>
+                <p class="card-text">VOLANES EN TINTA COLOR PAPEL OBRA E ILUSTRACIÒN. INCLUYE DISEÑO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <script src="js2023.js"></script>   
 </body>
 </html>

@@ -4,21 +4,41 @@
     max-width: 100%;
     height: auto;
     font-family: 'Montserrat', sans-serif;}
-    body {
+body {
       background-color: rgb(3, 9, 91);
     } 
-    .menu{
+.menu{
      background-color: aliceblue;
      display: flex;
      justify-content: flex-end;
     }
-    .EstilosProductos{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .marca{
+.blanco{
+  text-decoration-color: aquamarine;
+}
+
+      
+.marca{
         font-family: 'Montserrat', sans-serif;
         font-size: large;
-        color: aliceblue;
+        color: aliceblue;}
+form {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      text-decoration: double;
+      background-color: white;
+       width: 90%;
+       margin-left: 10%;
+       margin-right: 10%;
+      };
+.nav-item{
+ list-style: none;
+}        
+.card-img-top {
+  height: 400px;
+  width: 400px;
+}   
 
-      }
+    
