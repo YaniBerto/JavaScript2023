@@ -1,98 +1,77 @@
-/*class articulo{
+fetch("https://api.openweathermap.org/data/2.5/weather?q=Rosario&units=metric&appid=bbf8893c6e8030e157bb633d11a66e17&lang=es")
+    .then( response => response.json() )
+    .then( data => {
+      const ciudad = data.name;
+      const temperatura = data.main.temp;
+      const descripcion = data.weather[0].description;
 
-  constructor(nombre, numero_id){
-    this.nombre = nombre;
-    this.numero_id = numero_id;
+      const infoElement = document.createElement("p");
+      infoElement.textContent = `Ciudad: ${ciudad}, Temperatura: ${temperatura}°C, Descripción: ${descripcion}`;
+     
+      const weatherInfo = document.getElementById("weather-info");
+      weatherInfo.appendChild(infoElement);
+  })
+
+const productosComprados = [];
+
+const carritoGuardado = localStorage.getItem("carrito");
+  if (carritoGuardado) {
+      productosComprados = JSON.parse(carritoGuardado);
+
   }
-}
 
-let listaArticulos= [];
-
-for ( let i= 0; i < 2 ; i = i + 1 ){
-
-let nombre = prompt("articulo?");
-let numero_id = prompt("Id numero?");
-
-let nuevo_articulo = new articulo (nombre, numero_id);
-
-listaArticulos.push(nuevo_articulo);
-};
-
-console.log(listaArticulos);
-
-function buscar_producto (articulo){
-  return articulo.nombre == busqueda_articulo
-}
-
-let busqueda_articulo = prompt("nombre del articulo");
-
-let resultado_find = listaArticulos.find(buscar_producto);
-
-console.log(resultado_find);
-
-function buscar(){
-  console.log("hola")
-}
-
-let btnBuscar= document.getElementById("btnBuscar");
-btnBuscar.addEventListener("click", buscar);
-
-let nombreUsuario = document.getElementById("formulario");
-//STORAGE
-*/
-let arrUsuarios = [];
-
-function alta_usuario(){
-
-let nombreUsuario = document.getElementById("nombre");
-let password = document.getElementById("password");
-
-let usuario = {nombre: nombreUsuario.value, password: password.value};
-arrUsuarios.push(usuario);
-
-
-let arrJson = JSON.stringify(arrUsuarios);
-localStorage.setItem("arrUsuarios", arrJson);
-
-}
-
-function login_usuario(){
-
-  let arr= localStorage.getItem("arrUsuarios");
-  let nombreUsuario =document.getElementById("nombre").value;
-  let password = document.getElementById("password").value;
-
-
-arr = JSON.parse(arr);
-
-for (let usuario of arr){
-  if(usuario.nombre == nombreUsuario && usuario.password == password){
-
-    document.body.innerHTML = `<h1> Hola ${usuario.nombre}</h1>`;
-    break;
+function comprar(producto, precio) {
+  productosComprados.push({ producto, precio});
+  
+  Swal.fire({
+    title: `Compraste ${producto}`,
+    text: `precio: $${precio}`,
+    icon: 'success',
+    showCancelButton: false,
+    confirmButtonText: 'Aceptar'
+   }).then((result)=>{
+    if(result.isConfirmed){
+      sumarProducto();
+      localStorage.setItem("carrito", JSON.stringify(productosComprados));
+    }
+   });
+  
+  
+  function sumarProducto(){
+    const productosCarrito = document.getElementById("productosCarrito");
+    productosCarrito.innerHTML="";
+    for(const compra of productosComprados){
+      const li = document.createElement("li");
+      li.textContent = `${compra.producto} - $${compra.precio}`;
+      productosCarrito.appendChild(li);
+    }
   }
-  else{
-    document.body.innerHTML=`<h1>El usuario : ${nombreUsuario} no está registrado</h1>`;
-  }
+  function Total(){
+    const totalElement = document.getElementById("total");
+    totalElement.innerHTML = ""; 
+
+   
+    if (productosComprados.length > 0) {
+                const totalPrecio = productosComprados.reduce((total, compra) => total + compra.precio, 0);
+        
+        const total2 = document.createElement("p");
+        total2.textContent = `Total: $${totalPrecio}`;
+        totalElement.appendChild(total2);
+    } else {
+        const vacioP = document.createElement("p");
+        vacioP.textContent = "El carrito está vacío.";
+        totalElement.appendChild(vacioP);
+    }
 }
-}
-let btnRegistro = document.getElementById("btn_registro");
-let btnLogIn = document.getElementById("btn_login");
+  Total();
 
-btnRegistro.addEventListener("click", alta_usuario);
-btnLogIn.addEventListener("click", login_usuario);
+  const btnPagar = document.getElementById("btnPagar");
+ 
+  btnPagar.addEventListener("click", function(){
+    
+    Swal.fire('Pagaste');
+    
+  })
 
-
-/*
-let metros = prompt("ingrese cant. metros"); 
-const precio = 3000;
-function calcular_total(){
-
-  let precio_total = precio*metros;
-  console.log("el total de su compra es", precio_total);
-return calcular_total;
 
 }
-
-calcular_total()*/
-
